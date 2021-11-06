@@ -22,3 +22,36 @@ header h1{
 main{
     padding-top:25px;
 }
+
+h1 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 20px auto;
+}
+
+th, td {
+  padding: 10px 15px;
+}
+
+thead {
+  background: #395870;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+
+td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}
