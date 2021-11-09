@@ -44,13 +44,14 @@ $context=filter_input(INPUT_GET, 'context',FILTER_SANITIZE_STRING);
 
 <?php if($context=="cities"):?>
   <?php $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-  $code = $conn->query("SELECT DISTINCT code FROM countries WHERE name='$country'");
-  $codeList = $code->fetchALL(PDO::FETCH_ASSOC);
+  //$code = $conn->query("SELECT DISTINCT code FROM countries WHERE name='$country'");
+  //$codeList = $code->fetchALL(PDO::FETCH_ASSOC);
   //$stmt = $conn->query("SELECT * FROM countries WHERE name LIKE '%$country%'");
   
-  $codeForSearch=$codeList[0]['code'];
+  //$codeForSearch=$codeList[0]['code'];
   
-  $cityQuery= $conn->query("SELECT * FROM cities WHERE country_code='$codeForSearch'");
+  //$cityQuery= $conn->query("SELECT * FROM cities WHERE country_code='$codeForSearch'");
+  $cityQuery= $conn->query("SELECT cities.name, cities.district, cities.population FROM cities INNER JOIN countries ON cities.country_code=countries.code WHERE countries.name LIKE '%$country%'");
   $results = $cityQuery->fetchALL(PDO::FETCH_ASSOC);
 
   //$results = $stmt->fetchAll(PDO::FETCH_ASSOC);?>
